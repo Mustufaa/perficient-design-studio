@@ -10,8 +10,11 @@ const pillars = [
 
 export function WorkingOn() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <p className="section-eyebrow">Working On</p>
+    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <div className="mb-8 text-center">
+        <p className="section-eyebrow">Working On</p>
+        <h2 className="section-title-line mt-3 text-[clamp(28px,3.2vw,44px)]">Core strengths we bring to every project</h2>
+      </div>
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {pillars.map((pillar) => {
           const Icon = pillar.icon;

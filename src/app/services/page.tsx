@@ -1,5 +1,6 @@
 import { Services } from "@/components/sections/Services";
 import { ConsultantAssociates } from "@/components/sections/ConsultantAssociates";
+import { TrustedBrands } from "@/components/sections/TrustedBrands";
 
 export default function ServicesPage() {
   return (
@@ -9,6 +10,7 @@ export default function ServicesPage() {
         <h1 className="section-title-line mt-3 text-5xl">Design, build, and deliver with confidence.</h1>
       </div>
       <Services />
+      <TrustedBrands />
       <ConsultantAssociates />
     </main>
   );

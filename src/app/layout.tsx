@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { LOGO_SRC } from "@/lib/brand";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   description:
     "Premium architecture, construction, interior, and landscaping design studio based in Lucknow.",
   icons: {
-    icon: "/logo.png",
+    icon: LOGO_SRC,
   },
 };
 

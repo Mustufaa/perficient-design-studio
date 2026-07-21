@@ -56,10 +56,12 @@ export const services = [
 ];
 
 export const additionalServices = [
-  "Architectural Walkthrough & Animation",
-  "Space Design & Furniture Consultation",
-  "Sustainable Build Solutions",
-  "Optimization Solutions",
+  "Architectural Visualization",
+  "3D Walkthrough & Animation",
+  "Furniture Consultation",
+  "Space Optimization Solutions",
+  "Sustainable Design",
+  "Design & Build Solutions",
 ];
 
 export const expectations = [

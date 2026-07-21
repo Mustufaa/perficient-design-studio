@@ -18,12 +18,14 @@ const associates = [
 
 export function ConsultantAssociates() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <p className="section-eyebrow">Consultant Associates</p>
-      <h2 className="section-title-line mt-3 text-4xl">Integrated delivery partners</h2>
-      <p className="mt-4 max-w-3xl text-base leading-7 text-[var(--color-muted)]">
-        We collaborate with experienced consultants, contractors, and creative professionals to deliver integrated architectural and interior solutions with precision, efficiency, and attention to detail.
-      </p>
+    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <div className="mx-auto max-w-4xl text-center">
+        <p className="section-eyebrow">Consultant Associates</p>
+        <h2 className="section-title-line mt-3 text-[clamp(28px,3.2vw,44px)]">Integrated delivery partners</h2>
+        <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-[var(--color-muted)]">
+          We collaborate with experienced consultants, contractors, and creative professionals to deliver integrated architectural and interior solutions with precision, efficiency, and attention to detail.
+        </p>
+      </div>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
         {associates.map((associate) => (
           <div key={associate.name} className="card-surface rounded-3xl p-6">

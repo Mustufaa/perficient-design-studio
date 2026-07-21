@@ -67,6 +67,38 @@ h4,
   backdrop-filter: blur(12px);
 }
 
+/* Hover lift and top-arrow indicator for card-surface */
+.card-surface {
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-surface::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  transform: translateX(-50%) rotate(45deg) scale(0);
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.55);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.18s ease;
+  pointer-events: none;
+}
+
+.card-surface:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.card-surface:hover::before {
+  transform: translateX(-50%) rotate(45deg) scale(1);
+}
+
 .hero-grid {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.82)),

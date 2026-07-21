@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Globe2, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { LOGO_SRC } from "@/lib/brand";
 
 const services = [
   "Architecture Design",
@@ -24,13 +25,19 @@ export function Footer() {
         {/* TODO: Replace placeholder phone, email, WhatsApp, and office address before launch. */}
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <Image src="/logo.png" alt="Perficient Design Studio logo" width={72} height={72} className="rounded-full bg-white p-2" />
+            <Image src={LOGO_SRC} alt="Perficient Design Studio logo" width={80} height={80} className="h-20 w-auto object-contain" style={{ width: 'auto' }} />
           </div>
           <p className="mb-4 max-w-md text-sm text-[var(--color-ink)]/80">Designing Spaces with Precision & Purpose</p>
           <div className="flex gap-3 text-[var(--color-ink)]/80">
-            <a href="#" aria-label="Instagram" className="rounded-full border border-[var(--color-ink)]/20 bg-white/80 p-2"><Globe2 className="h-4 w-4" /></a>
-            <a href="#" aria-label="LinkedIn" className="rounded-full border border-[var(--color-ink)]/20 bg-white/80 p-2"><Globe2 className="h-4 w-4" /></a>
-            <a href="#" aria-label="Facebook" className="rounded-full border border-[var(--color-ink)]/20 bg-white/80 p-2"><Globe2 className="h-4 w-4" /></a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="rounded-full border border-[var(--color-ink)]/20 bg-white/80 p-2">
+              <Image src="/linkedin.png" alt="LinkedIn" width={20} height={20} className="h-4 w-4" />
+            </a>
+            <a href="https://www.instagram.com/perficient.design?igsh=aHM1NXVqZG1obG9u" target="_blank" rel="noreferrer" aria-label="Instagram" className="rounded-full border border-[var(--color-ink)]/20 bg-white/80 p-2">
+              <Image src="/instagram.png" alt="Instagram" width={20} height={20} className="h-4 w-4" />
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="rounded-full border border-[var(--color-ink)]/20 bg-white/80 p-2">
+              <Image src="/facebook.png" alt="Facebook" width={20} height={20} className="h-4 w-4" />
+            </a>
           </div>
         </div>
 
@@ -48,15 +55,20 @@ export function Footer() {
           </ul>
           <div className="mt-6 space-y-2 text-sm text-[var(--color-ink)]/80">
             <a href="tel:+919369806672" className="flex items-center gap-2 transition hover:text-[var(--color-gold)]">
-              <Phone className="h-4 w-4" /> +91 93698 06672
+              <Phone className="h-4 w-4" /> +91 9369806672
             </a>
-            <a href="mailto:perficientdesignstidios@gmail.com" className="flex items-center gap-2 transition hover:text-[var(--color-gold)]">
-              <Mail className="h-4 w-4" /> perficientdesignstidios@gmail.com
+            <a href="tel:+919919001159" className="flex items-center gap-2 transition hover:text-[var(--color-gold)]">
+              <Phone className="h-4 w-4" /> +91 9919001159
+            </a>
+            <a href="mailto:perficientdesignstudios@gmail.com" className="flex items-center gap-2 transition hover:text-[var(--color-gold)]">
+              <Mail className="h-4 w-4" /> perficientdesignstudios@gmail.com
             </a>
             <a href="https://wa.me/919369806672" target="_blank" rel="noreferrer" className="flex items-center gap-2 transition hover:text-[var(--color-gold)]">
-              <MessageCircle className="h-4 w-4" /> +91 93698 06672
+              <MessageCircle className="h-4 w-4" /> +91 9369806672
             </a>
-            <p className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Lucknow, Uttar Pradesh</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=102%2C+Vijaykhand%2C+Gomti+Nagar%2C+Lucknow" target="_blank" rel="noreferrer" className="flex items-center gap-2 transition hover:text-[var(--color-gold)]">
+              <MapPin className="h-4 w-4" /> 102, Vijaykhand, Gomti Nagar, Lucknow, Uttar Pradesh 
+            </a>
           </div>
         </div>
       </div>
@@ -65,7 +77,18 @@ export function Footer() {
         <p className="py-3">ARCHITECTURE / CONSTRUCTION / INTERIOR / LANDSCAPING</p>
       </div>
       <div className="px-4 pb-6 text-center text-sm text-[var(--color-ink)]/70">
-        © {new Date().getFullYear()} Perficient Design Studio
+        <p>© {new Date().getFullYear()} Perficient Design Studio</p>
+        <p className="mt-2">
+          Design by{' '}
+          <a
+            href="https://www.linkedin.com/in/mohdmustufa"
+            target="_blank"
+            rel="noreferrer"
+            className="underline decoration-[var(--color-ink)]/40 underline-offset-4 transition hover:text-[var(--color-ink)]"
+          >
+            Mohd Mustufa
+          </a>
+        </p>
       </div>
     </footer>
   );
