@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 function WhatsAppLogo() {
@@ -19,7 +20,7 @@ export function WhatsAppButton() {
       aria-label="Chat with Perficient Design Studio on WhatsApp"
     >
       <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white">
-        <WhatsAppLogo />
+        <Image src="/image-1784799432328.png" alt="WhatsApp" width={20} height={20} />
       </span>
       <span className="hidden sm:inline">Chat with us</span>
     </Link>

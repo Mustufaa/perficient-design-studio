@@ -25,7 +25,7 @@ export function Footer() {
         {/* TODO: Replace placeholder phone, email, WhatsApp, and office address before launch. */}
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <Image src={LOGO_SRC} alt="Perficient Design Studio logo" width={80} height={80} className="h-20 w-auto object-contain" style={{ width: 'auto' }} />
+            <Image src={LOGO_SRC} alt="Perficient Design Studio logo" width={120} height={120} className="h-20 w-auto object-contain sm:h-24 md:h-28" style={{ width: 'auto' }} />
           </div>
           <p className="mb-4 max-w-md text-sm text-[var(--color-ink)]/80">Designing Spaces with Precision & Purpose</p>
           <div className="flex gap-3 text-[var(--color-ink)]/80">

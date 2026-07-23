@@ -98,8 +98,14 @@ export function Navbar() {
       }`}
     >
       <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:grid lg:grid-cols-[auto_1fr_auto] lg:items-center lg:px-8">
-        <Link href="/" className="relative z-10 flex items-center gap-3">
-          <Image src={LOGO_SRC} alt="Perficient Design Studio logo" width={80} height={80} className="h-20 w-auto object-contain" />
+        <Link href="/" className="relative z-10 flex items-center gap-3 self-center pt-4">
+          <Image
+            src={LOGO_SRC}
+            alt="Perficient Design Studio logo"
+            width={96}
+            height={96}
+            className="h-20 w-auto shrink-0 object-contain sm:h-24 md:h-28"
+          />
         </Link>
 
         <div className="pointer-events-none absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 justify-center lg:static lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 lg:pointer-events-auto">
