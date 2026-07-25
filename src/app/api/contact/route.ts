@@ -5,9 +5,6 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const contactFilePath = join(process.cwd(), "data", "contact-leads.csv");
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
-const contactEmailTo = process.env.CONTACT_EMAIL_TO ?? "perficientdesignstidios@gmail.com";
-const contactEmailFrom = process.env.CONTACT_EMAIL_FROM ?? "Perficient Design Studio <onboarding@resend.dev>";
 
 async function loadEnvConfig() {
   const envFilePath = join(process.cwd(), ".env.local");
@@ -40,6 +37,9 @@ async function loadEnvConfig() {
     sheetId: envValues.GOOGLE_SHEET_ID ?? process.env.GOOGLE_SHEET_ID ?? "1OfZRU8p_cdmSBu3QvwurEOzLnQgaxZhsaVWX7HknvqU",
     serviceAccountJsonEnv: envValues.GOOGLE_SERVICE_ACCOUNT_JSON ?? process.env.GOOGLE_SERVICE_ACCOUNT_JSON,
     serviceAccountPath: envValues.GOOGLE_SERVICE_ACCOUNT_PATH ?? process.env.GOOGLE_SERVICE_ACCOUNT_PATH,
+    resendApiKey: envValues.RESEND_API_KEY ?? process.env.RESEND_API_KEY,
+    contactEmailTo: envValues.CONTACT_EMAIL_TO ?? process.env.CONTACT_EMAIL_TO ?? "perficientdesignstidios@gmail.com",
+    contactEmailFrom: envValues.CONTACT_EMAIL_FROM ?? process.env.CONTACT_EMAIL_FROM ?? "Perficient Design Studio <onboarding@resend.dev>",
   };
 }
 
@@ -102,62 +102,85 @@ export async function POST(request: Request) {
       submittedAt,
     ];
 
+    let sheetSaved = false;
+
     if (envConfig.googleAppsScriptUrl) {
-      const appsScriptResponse = await fetch(envConfig.googleAppsScriptUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: body.name ?? "",
-          brandName: body.brandName ?? "",
-          phone: body.phone ?? "",
-          email: body.email ?? "",
-          projectType: body.projectType ?? "",
-          message: body.message ?? "",
-          submittedAt,
-        }),
-      });
-
-      const appsScriptResponseText = await appsScriptResponse.text();
-      let appsScriptResult: { success?: boolean; error?: string } | null = null;
-
       try {
-        appsScriptResult = JSON.parse(appsScriptResponseText);
-      } catch {
-        console.error("Google Apps Script returned a non-JSON response", appsScriptResponseText.slice(0, 1000));
-      }
+        const appsScriptResponse = await fetch(envConfig.googleAppsScriptUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: body.name ?? "",
+            brandName: body.brandName ?? "",
+            phone: body.phone ?? "",
+            email: body.email ?? "",
+            projectType: body.projectType ?? "",
+            message: body.message ?? "",
+            submittedAt,
+          }),
+        });
 
-      if (!appsScriptResponse.ok || appsScriptResult?.success !== true) {
-        console.error("Google Apps Script submission failed", appsScriptResult?.error ?? appsScriptResponseText.slice(0, 1000));
-        return NextResponse.json({ message: "Unable to save the contact request to Google Sheets." }, { status: 502 });
-      }
+        const appsScriptResponseText = await appsScriptResponse.text();
+        let appsScriptResult: { success?: boolean; error?: string } | null = null;
 
+        try {
+          appsScriptResult = JSON.parse(appsScriptResponseText);
+        } catch {
+          console.warn("Google Apps Script returned a non-JSON response", appsScriptResponseText.slice(0, 1000));
+        }
+
+        if (appsScriptResponse.ok && appsScriptResult?.success === true) {
+          sheetSaved = true;
+        } else {
+          console.warn("Google Apps Script submission failed", appsScriptResult?.error ?? appsScriptResponseText.slice(0, 1000));
+        }
+      } catch (error) {
+        console.warn("Google Apps Script submission failed", error);
+      }
     } else {
       await mkdir(join(process.cwd(), "data"), { recursive: true });
       await appendFile(contactFilePath, `${row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(",")}\n`, "utf8");
+      sheetSaved = true;
     }
 
     if (!envConfig.googleAppsScriptUrl) {
-      await appendToGoogleSheet(row);
+      try {
+        await appendToGoogleSheet(row);
+      } catch (error) {
+        console.warn("Google Sheets fallback failed", error);
+      }
     }
 
-    if (resend) {
-      await resend.emails.send({
-        from: contactEmailFrom,
-        to: [contactEmailTo],
-        subject: `New Contact Form Submission from ${body.name ?? "Website Visitor"}`,
-        html: `
-          <h2>New project inquiry received</h2>
-          <p><strong>Name:</strong> ${body.name ?? "—"}</p>
-          <p><strong>Brand / Company:</strong> ${body.brandName ?? "—"}</p>
-          <p><strong>Phone:</strong> ${body.phone ?? "—"}</p>
-          <p><strong>Email:</strong> ${body.email ?? "—"}</p>
-          <p><strong>Project Type:</strong> ${body.projectType ?? "—"}</p>
-          <p><strong>Submitted At:</strong> ${submittedAt}</p>
-          <p><strong>Message:</strong><br />${(body.message ?? "—").replace(/\n/g, "<br />")}</p>
-        `,
-      });
+    const resendClient = envConfig.resendApiKey ? new Resend(envConfig.resendApiKey) : null;
+
+    if (resendClient) {
+      try {
+        await resendClient.emails.send({
+          from: envConfig.contactEmailFrom,
+          to: [envConfig.contactEmailTo],
+          subject: `New Contact Form Submission from ${body.name ?? "Website Visitor"}`,
+          html: `
+            <h2>New project inquiry received</h2>
+            <p><strong>Name:</strong> ${body.name ?? "—"}</p>
+            <p><strong>Brand / Company:</strong> ${body.brandName ?? "—"}</p>
+            <p><strong>Phone:</strong> ${body.phone ?? "—"}</p>
+            <p><strong>Email:</strong> ${body.email ?? "—"}</p>
+            <p><strong>Project Type:</strong> ${body.projectType ?? "—"}</p>
+            <p><strong>Submitted At:</strong> ${submittedAt}</p>
+            <p><strong>Message:</strong><br />${(body.message ?? "—").replace(/\n/g, "<br />")}</p>
+          `,
+        });
+      } catch (error) {
+        console.error("Resend email submission failed", error);
+      }
+    } else {
+      console.warn("RESEND_API_KEY is not configured. Skipping email delivery.");
+    }
+
+    if (!sheetSaved) {
+      console.warn("Contact form was saved locally but the Google Sheets integration did not complete.");
     }
 
     return NextResponse.json({ message: "Contact request received." });
