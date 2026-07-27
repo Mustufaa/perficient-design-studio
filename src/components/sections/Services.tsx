@@ -85,7 +85,7 @@ export function Services() {
                   ))}
                 </div>
                 <a
-                  href="#contact"
+                  href="contact"
                   className="mt-8 inline-flex rounded-full bg-[var(--color-gold)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-ink)] transition hover:bg-[var(--color-ink)] hover:text-white"
                 >
                   Contact
