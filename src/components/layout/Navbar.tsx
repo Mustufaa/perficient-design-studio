@@ -20,7 +20,6 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/projects", label: "Projects" },
-  { href: "/calculator", label: "Calculator" },
   { href: "/lda-approval", label: "LDA Approval" },
   { href: "/contact", label: "Contact" },
 ];

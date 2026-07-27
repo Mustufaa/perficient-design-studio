@@ -1,5 +1,4 @@
 import { About } from "@/components/sections/About";
-import { ConsultantAssociates } from "@/components/sections/ConsultantAssociates";
 import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
@@ -14,7 +13,6 @@ export default function HomePage() {
       <VisionValuesMission />
       <WorkingOn />
       <Services />
-      <ConsultantAssociates />
       <TrustedBrands />
       <FeaturedProjects />
     </main>

@@ -53,6 +53,17 @@ export const services = [
       "Plantation & Green Planning",
     ],
   },
+  {
+    title: "Turnkey Construction",
+    bullets: [
+      "Turnkey residential construction",
+      "Premium and standard package options",
+      "Material selection and management",
+      "On-site supervision and coordination",
+      "Quality finishing and handover support",
+      "Schedule and budget management",
+    ],
+  },
 ];
 
 export const additionalServices = [

@@ -13,7 +13,6 @@ const services = [
 const explore = [
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
-  { label: "Calculator", href: "/calculator" },
   { label: "LDA Approval", href: "/lda-approval" },
   { label: "Contact", href: "/contact" },
 ];
@@ -32,7 +31,7 @@ export function Footer() {
             <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="rounded-full border border-[var(--color-ink)]/20 bg-white/80 p-2">
               <Image src="/linkedin.png" alt="LinkedIn" width={20} height={20} className="h-4 w-4" />
             </a>
-            <a href="https://www.instagram.com/perficient.design?igsh=aHM1NXVqZG1obG9u" target="_blank" rel="noreferrer" aria-label="Instagram" className="rounded-full border border-[var(--color-ink)]/20 bg-white/80 p-2">
+            <a href="https://www.instagram.com/perficient.design" target="_blank" rel="noreferrer" aria-label="Instagram" className="rounded-full border border-[var(--color-ink)]/20 bg-white/80 p-2">
               <Image src="/instagram.png" alt="Instagram" width={20} height={20} className="h-4 w-4" />
             </a>
             <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="rounded-full border border-[var(--color-ink)]/20 bg-white/80 p-2">

@@ -6,22 +6,31 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=80",
+    // Use the uploaded exterior/architecture image in public/
+    image: "/hero-architecture.png",
     alt: "Elegant villa exterior",
     tone: "dark" as const,
+    title: "Designing spaces with precision & purpose.",
+    description: "Thoughtful architectural solutions that balance aesthetics with functionality. We create timeless spaces that inspire and endure.",
+    service: "Architecture",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=80",
+    // Use the uploaded interior image in public/
+    image: "/hero-interior.png",
     alt: "Boutique living room",
     tone: "dark" as const,
+    title: "Crafting interiors with heart & detail.",
+    description: "Luxurious interior design that transforms spaces into personal sanctuaries. Every element chosen for comfort, elegance, and lasting value.",
+    service: "Interior Design",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2000&q=80",
-    alt: "Elegant kitchen interior",
+    // Use the uploaded construction image in public/
+    image: "/hero-construction.png",
+    alt: "Construction site with cranes",
     tone: "light" as const,
+    title: "Building excellence from vision to reality.",
+    description: "Quality construction services that bring your projects to life. Every project is handled with meticulous attention to detail, timely execution, and lasting value.",
+    service: "Construction",
   },
 ];
 
@@ -65,17 +74,19 @@ export function Hero() {
         <div className="mx-auto max-w-4xl">
           <div className="mx-auto mb-6 h-px w-16 bg-white/70" />
           <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.38em] text-white/80">
-            Architecture · Interior · Landscape
+            {slides[activeIndex]?.service}
           </p>
-          <h1 className="font-display text-[clamp(42px,7vw,96px)] font-light italic leading-[0.95] tracking-[0.01em] text-white">
-            Designing spaces
-            <br />
-            with precision & purpose.
+          <h1 className="font-display text-[clamp(42px,7vw,96px)] font-light italic leading-[0.95] tracking-[0.01em] text-white transition-opacity duration-500">
+            {slides[activeIndex]?.title}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/80 sm:text-[15.5px]">
-            A boutique design practice in Lucknow — quietly luxurious architecture and interiors,
-            shaped around comfort, material honesty and long-term value.
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/80 sm:text-[15.5px] transition-opacity duration-500">
+            {slides[activeIndex]?.description}
           </p>
+          {activeIndex === 2 && (
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/80 italic sm:text-[15.5px] transition-opacity duration-500">
+              <span className="font-semibold">We offer Turnkey Construction</span>
+            </p>
+          )}
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/projects"
