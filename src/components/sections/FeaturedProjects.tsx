@@ -24,13 +24,10 @@ export function FeaturedProjects() {
 
               <div className="space-y-2 text-sm text-[var(--color-muted)]">
                 <p>
-                  <span className="font-semibold text-[var(--color-ink)]">Address:</span> {project.location}
+                  <span className="font-semibold text-[var(--color-ink)]">Location:</span> {project.location}
                 </p>
                 <p>
-                  <span className="font-semibold text-[var(--color-ink)]">Owner:</span> {project.owner}
-                </p>
-                <p>
-                  <span className="font-semibold text-[var(--color-ink)]">Review:</span> {project.review}
+                  <span className="font-semibold text-[var(--color-ink)]">Type:</span> {project.category}
                 </p>
               </div>
 

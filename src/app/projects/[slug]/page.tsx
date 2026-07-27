@@ -22,9 +22,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
       <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-2xl border border-[var(--color-line)] bg-white/60 p-4 text-sm"><span className="font-semibold text-[var(--color-ink)]">Location:</span> {project.location}</div>
-        <div className="rounded-2xl border border-[var(--color-line)] bg-white/60 p-4 text-sm"><span className="font-semibold text-[var(--color-ink)]">Category:</span> {project.category}</div>
-        <div className="rounded-2xl border border-[var(--color-line)] bg-white/60 p-4 text-sm"><span className="font-semibold text-[var(--color-ink)]">Area:</span> {project.builtUpArea ?? project.plotArea ?? "—"}</div>
-        <div className="rounded-2xl border border-[var(--color-line)] bg-white/60 p-4 text-sm"><span className="font-semibold text-[var(--color-ink)]">Status:</span> {project.status ?? "—"}</div>
+        <div className="rounded-2xl border border-[var(--color-line)] bg-white/60 p-4 text-sm"><span className="font-semibold text-[var(--color-ink)]">Project Type:</span> {project.category}</div>
       </div>
 
       <div className="mt-8">
@@ -32,17 +30,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <p className="section-eyebrow">Project Detail</p>
           <h1 className="mt-3 text-[clamp(34px,4vw,58px)] leading-none">{project.title}</h1>
           <p className="mt-4 text-base leading-7 text-[var(--color-muted)]">{project.overview}</p>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-[var(--color-line)] bg-white/60 p-4 text-sm">
-              <div className="font-semibold text-[var(--color-ink)]">Completion Date</div>
-              <div className="mt-2 text-[var(--color-muted)]">{project.completionDate ?? "—"}</div>
-            </div>
-            <div className="rounded-2xl border border-[var(--color-line)] bg-white/60 p-4 text-sm">
-              <div className="font-semibold text-[var(--color-ink)]">Client Details</div>
-              <div className="mt-2 text-[var(--color-muted)]">{project.clientDetails ?? "Private project"}</div>
-            </div>
-          </div>
         </div>
       </div>
 
