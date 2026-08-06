@@ -103,6 +103,7 @@ export function Navbar() {
             alt="Perficient Design Studio logo"
             width={96}
             height={96}
+            unoptimized
             className="h-20 w-auto shrink-0 object-contain sm:h-24 md:h-28"
           />
         </Link>

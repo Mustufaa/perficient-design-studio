@@ -20,11 +20,11 @@ const explore = [
 export function Footer() {
   return (
     <footer className="bg-[var(--color-gold)] text-[var(--color-ink)]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_1fr] lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(300px,1.25fr)_minmax(220px,0.75fr)_minmax(320px,1fr)] lg:gap-16 lg:px-8 xl:gap-24">
         {/* TODO: Replace placeholder phone, email, WhatsApp, and office address before launch. */}
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <Image src={LOGO_SRC} alt="Perficient Design Studio logo" width={120} height={120} className="h-20 w-auto object-contain sm:h-24 md:h-28" style={{ width: 'auto' }} />
+            <Image src={LOGO_SRC} alt="Perficient Design Studio logo" width={120} height={120} unoptimized className="h-20 w-auto object-contain sm:h-24 md:h-28" style={{ width: 'auto' }} />
           </div>
           <p className="mb-4 max-w-md text-sm text-[var(--color-ink)]/80">Designing Spaces with Precision & Purpose</p>
           <div className="flex gap-3 text-[var(--color-ink)]/80">

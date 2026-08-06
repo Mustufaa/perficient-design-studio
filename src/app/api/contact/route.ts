@@ -164,7 +164,7 @@ export async function POST(request: Request) {
           html: `
             <h2>New project inquiry received</h2>
             <p><strong>Name:</strong> ${body.name ?? "—"}</p>
-            <p><strong>Brand / Company:</strong> ${body.brandName ?? "—"}</p>
+            <p><strong>Address / Location:</strong> ${body.brandName ?? "—"}</p>
             <p><strong>Phone:</strong> ${body.phone ?? "—"}</p>
             <p><strong>Email:</strong> ${body.email ?? "—"}</p>
             <p><strong>Project Type:</strong> ${body.projectType ?? "—"}</p>

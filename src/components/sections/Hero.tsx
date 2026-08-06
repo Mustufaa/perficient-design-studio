@@ -70,7 +70,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-[rgba(38,32,26,0.35)]" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/15 to-black/45" />
 
-      <div className="relative z-10 flex h-full items-center justify-center px-4 text-center sm:px-6 lg:px-8">
+      <div className="relative z-10 flex h-full items-center justify-center px-4 pt-0 text-center sm:px-6 lg:px-8 lg:pt-24 xl:pt-16">
         <div className="mx-auto max-w-4xl">
           <div className="mx-auto mb-6 h-px w-16 bg-white/70" />
           <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.38em] text-white/80">

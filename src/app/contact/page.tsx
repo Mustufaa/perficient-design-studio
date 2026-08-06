@@ -95,7 +95,7 @@ export default function ContactPage() {
           <div className="grid gap-4">
             <input placeholder="Name" {...register("name")} className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3" />
             <input placeholder="Phone" {...register("phone")} className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3" />
-            <input placeholder="Brand / Company Name" {...register("brandName")} className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3" />
+            <input placeholder="Address & Location" {...register("brandName")} className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3" />
             <input placeholder="Email" type="email" {...register("email")} className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3" />
             <select {...register("projectType")} className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3">
               <option>Residential</option>

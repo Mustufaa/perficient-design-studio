@@ -2,7 +2,7 @@ export const services = [
   {
     title: "Architecture Design & Construction Services",
     bullets: [
-      "With Material and Labor",
+      "Construction With Material",
       "Conceptual Design",
       "Facade Design",
       "Space Planning",

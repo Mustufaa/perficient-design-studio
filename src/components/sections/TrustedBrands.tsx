@@ -1,8 +1,8 @@
 const brands = [
   { name: "Tata Motors", type: "Automotive", logo: "/image-1784577549004.png" },
   { name: "Shree Dev Wheels", type: "Automotive", logo: "/image-1784577908443.png" },
-  { name: "The Chocolate Room", type: "Food & Beverage", logo: "/image-1784576350994.png" },
-  { name: "Mr. Sandwich", type: "Food & Beverage", logo: "/image-1784576758844.png" },
+  { name: "Cafe & Bakery Interior", type: "Food & Beverage", logo: "/image-1784576350994.png" },
+  { name: "Cafe Food Kiosk", type: "Food & Beverage", logo: "/image-1784576758844.png" },
   { name: "Lakme Salon", type: "Beauty & Lifestyle", logo: "/image-1784577458458.png" },
 ];
 

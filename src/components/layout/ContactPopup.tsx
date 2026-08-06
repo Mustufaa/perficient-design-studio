@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { X } from "lucide-react";
 
 type FeedbackState = { type: "success" | "error"; message: string } | null;
 
 type FormState = {
   name: string;
-  brandName: string;
+  addressAndLocation: string;
   phone: string;
   email: string;
   message: string;
@@ -15,21 +15,17 @@ type FormState = {
 
 const initialForm: FormState = {
   name: "",
-  brandName: "",
+  addressAndLocation: "",
   phone: "",
   email: "",
   message: "",
 };
 
 export function ContactPopup() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<FeedbackState>(null);
   const [form, setForm] = useState<FormState>(initialForm);
-
-  useEffect(() => {
-    setIsOpen(true);
-  }, []);
 
   const handleChange = (field: keyof FormState, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -86,7 +82,7 @@ export function ContactPopup() {
           <div>
             <p className="section-eyebrow">Let’s talk</p>
             <h2 className="mt-2 text-2xl font-semibold text-[var(--color-ink)] sm:text-3xl">
-              Tell us about your project
+              Tell us about your requirement
             </h2>
             <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
               Share your idea and we will get back to you with the right plan.
@@ -126,9 +122,9 @@ export function ContactPopup() {
             />
             <input
               required
-              value={form.brandName}
-              onChange={(e) => handleChange("brandName", e.target.value)}
-              placeholder="Company / Brand"
+              value={form.addressAndLocation}
+              onChange={(e) => handleChange("addressAndLocation", e.target.value)}
+              placeholder="Address & Location"
               className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
             />
             <input
@@ -152,7 +148,7 @@ export function ContactPopup() {
             required
             value={form.message}
             onChange={(e) => handleChange("message", e.target.value)}
-            placeholder="Tell us about your project"
+            placeholder="Tell us about your requirement"
             className="min-h-32 rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
           />
 

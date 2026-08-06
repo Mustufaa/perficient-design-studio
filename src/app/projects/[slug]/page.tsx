@@ -16,8 +16,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
-      <div className="relative h-[420px] overflow-hidden rounded-[32px]">
-        <Image src={project.images[0]} alt={project.title} fill className="object-cover" />
+      <div className="relative h-[360px] overflow-hidden rounded-[32px] border border-[var(--color-line)] bg-white sm:h-[520px] lg:h-[680px]">
+        <Image src={project.images[0]} alt={project.title} fill className="object-contain p-2" />
       </div>
 
       <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -59,8 +59,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         <h2 className="text-2xl">Project Gallery</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           {project.images.map((image, index) => (
-            <div key={`${project.slug}-${index}`} className="relative h-72 overflow-hidden rounded-3xl border border-[var(--color-line)]">
-              <Image src={image} alt={`${project.title} view ${index + 1}`} fill className="object-cover" />
+            <div key={`${project.slug}-${index}`} className="relative h-[320px] overflow-hidden rounded-3xl border border-[var(--color-line)] bg-white sm:h-[420px] lg:h-[520px]">
+              <Image src={image} alt={`${project.title} view ${index + 1}`} fill className="object-contain p-2" />
             </div>
           ))}
         </div>
