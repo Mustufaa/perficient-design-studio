@@ -82,6 +82,16 @@ export function Hero() {
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/80 sm:text-[15.5px] transition-opacity duration-500">
             {slides[activeIndex]?.description}
           </p>
+          <p className="mx-auto mt-4 inline-flex max-w-fit items-center gap-2 rounded-full border border-[#f1d295]/40 bg-[#f1d295]/15 px-4 py-2 text-sm font-semibold uppercase tracking-[0.24em] text-[#f8e4b7] shadow-[0_0_0_1px_rgba(255,255,255,0.05)] transition-opacity duration-500 sm:text-[13px]">
+            <span className="text-white/80">Call us</span>
+            <a href="tel:+919369806672" className="font-bold text-white underline decoration-[#f1d295]/70 underline-offset-4">
+              +91 9369806672
+            </a>
+          </p>
+          <div className="mx-auto mt-3 flex max-w-3xl flex-col gap-2 text-center text-base font-medium italic text-white/90 transition-opacity duration-500 sm:text-[17px]">
+            <p>Best architecture, interior design & construction company.</p>
+            <p>One stop solution for your dream space.</p>
+          </div>
           {activeIndex === 2 && (
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/80 italic sm:text-[15.5px] transition-opacity duration-500">
               <span className="font-semibold">We offer Turnkey Construction</span>

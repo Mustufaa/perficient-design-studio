@@ -1,7 +1,8 @@
 export const services = [
   {
-    title: "Architecture Design",
+    title: "Architecture Design & Construction Services",
     bullets: [
+      "With Material and Labor",
       "Conceptual Design",
       "Facade Design",
       "Space Planning",
@@ -9,13 +10,19 @@ export const services = [
       "3D Modeling & Visualization",
       "Residential Design",
       "Commercial Design",
-      "Renovation & Remodeling",
-      "Site Planning",
       "Project Management",
+      "Construction Management",
+      "Site Supervision",
+      "Turnkey Construction",
+      "Execution & Coordination",
+      "Vendor Coordination",
+      "Material Management",
+      "Timeline Management",
+      "Quality Control & Support",
     ],
   },
   {
-    title: "Interior Design",
+    title: "Interior Design & Development",
     bullets: [
       "Space Planning & Layout",
       "Material & Finish Selection",
@@ -27,20 +34,6 @@ export const services = [
       "Turnkey Interior Execution",
       "Modular Kitchen Design",
       "Styling & Decor",
-    ],
-  },
-  {
-    title: "Construction Services",
-    bullets: [
-      "Construction Management",
-      "Site Supervision",
-      "Turnkey Construction",
-      "Execution & Coordination",
-      "Renovation & Remodeling",
-      "Vendor Coordination",
-      "Material Management",
-      "Timeline Management",
-      "Quality Control & Support",
     ],
   },
   {

@@ -73,7 +73,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-[var(--color-ink)]/15 text-center text-[11px] uppercase tracking-[0.25em] text-[var(--color-ink)]/70">
-        <p className="py-3">ARCHITECTURE / CONSTRUCTION / INTERIOR / LANDSCAPING</p>
+        <p className="py-3">ARCHITECTURE / INTERIOR DESIGN / CONSTRUCTION  </p>
       </div>
       <div className="px-4 pb-6 text-center text-sm text-[var(--color-ink)]/70">
         <p>© {new Date().getFullYear()} Perficient Design Studio</p>

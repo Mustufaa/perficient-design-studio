@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { ContactPopup } from "@/components/layout/ContactPopup";
 import { LOGO_SRC } from "@/lib/brand";
 
 const cormorant = Cormorant_Garamond({
@@ -38,6 +39,7 @@ export default function RootLayout({
         <div className="flex-1">{children}</div>
         <Footer />
         <WhatsAppButton />
+        <ContactPopup />
       </body>
     </html>
   );
