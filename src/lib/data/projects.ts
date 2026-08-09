@@ -246,6 +246,43 @@ export const projects: Project[] = [
       "Lifestyle-focused room arrangement",
     ],
   },
+  {
+    slug: "tata-motors-lucknow",
+    title: "Tata Motors Showroom",
+    location: "Lucknow, Uttar Pradesh",
+    category: "Automotive Showroom",
+    owner: "Tata Motors",
+    review: "A modern automotive showroom concept for Tata Motors in Lucknow with strong brand presence and premium customer experience.",
+    status: "Completed 2026",
+    completionDate: "2026",
+    clientDetails: "Tata Motors showroom project",
+    designHighlights: [
+      "High-visibility branded facade with clean structural lines",
+      "Efficient vehicle display layout for easy customer circulation",
+      "Premium material palette with steel, glass, and warm finishes",
+    ],
+    materialsUsed: ["Glass curtain wall", "Metal cladding", "Polished tile flooring", "LED display panels"],
+    overview:
+      "A sleek Tata Motors showroom designed for Lucknow that combines premium branding, functional customer flow, and a polished automotive retail environment.",
+    images: [
+      "/tata-motors-lucknow-1.jpeg",
+      "/tata-motors-lucknow-2.jpeg",
+    ],
+    details: [
+      "Automotive showroom design focused on customer visibility and brand presentation",
+      "Open display zones for vehicles with defined circulation paths",
+      "Premium lighting design for vehicle highlighting and ambience",
+      "Comfortable customer waiting and lounge areas",
+      "Streamlined reception and consultation space for buyers",
+    ],
+    keyFeatures: [
+      "Strong branded facade and signage zones",
+      "Open showroom layout for vehicle display",
+      "Premium interior finishes and lighting",
+      "Functional customer circulation and experience",
+      "Dedicated consultation and service desk areas",
+    ],
+  },
 ];
 
 export function getProjectBySlug(slug: string) {

@@ -13,7 +13,7 @@ export function FeaturedProjects() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {projects.slice(0, 6).map((project) => (
+        {projects.map((project) => (
           <article key={project.slug} className="flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--color-line)] bg-white/50">
             <div className="relative h-64 overflow-hidden">
               <Image src={project.images[0]} alt={project.title} fill className="object-cover transition duration-500 hover:scale-105" />

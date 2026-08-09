@@ -10,6 +10,7 @@ type FormState = {
   addressAndLocation: string;
   phone: string;
   email: string;
+  projectType: string;
   message: string;
 };
 
@@ -18,6 +19,7 @@ const initialForm: FormState = {
   addressAndLocation: "",
   phone: "",
   email: "",
+  projectType: "Construction",
   message: "",
 };
 
