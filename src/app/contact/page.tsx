@@ -98,12 +98,13 @@ export default function ContactPage() {
             <input placeholder="Address & Location" {...register("brandName")} className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3" />
             <input placeholder="Email" type="email" {...register("email")} className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3" />
             <select {...register("projectType")} className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3">
+              <option>Construction</option>
               <option>Residential</option>
               <option>Commercial</option>
               <option>Interior</option>
               <option>Landscape</option>
-              <option>Construction</option>
-              <option>Turnkey Construction</option>
+              <option>Other</option>
+              
             </select>
             <textarea placeholder="Message" {...register("message")} className="min-h-36 rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3" />
             <button

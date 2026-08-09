@@ -41,8 +41,6 @@ export const projects: Project[] = [
     images: [
       "/residence-01.jpeg",
       "/residence-02.jpeg",
-      "/residence-03.jpeg",
-      "/residence-04.jpeg",
     ],
     details: [
       "Grand symmetrical facade with classical architectural elements",
@@ -134,9 +132,9 @@ export const projects: Project[] = [
   },
   {
     slug: "cafe-food-kiosk-design-lucknow",
-    title: "Cafe Food Kiosk Design",
-    location: "Lucknow, Uttar Pradesh",
-    category: "Cafe Kiosk Design",
+    title: "Kiosk Design",
+    location: "Lulu Mall, Lucknow, Uttar Pradesh",
+    category: "Kiosk Design",
     owner: "Private Food Kiosk Client",
     review: "A compact cafe food kiosk design with high-visibility signage, efficient counter planning, warm lighting, and strong customer flow.",
     builtUpArea: "120-160 sq.ft",

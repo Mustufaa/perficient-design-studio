@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { LOGO_SRC } from "@/lib/brand";
 
@@ -25,6 +26,7 @@ const links = [
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [heroTone, setHeroTone] = useState<"dark" | "light">("dark");
@@ -56,23 +58,23 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  const brandToneClass = scrolled
-    ? "text-[var(--color-ink)]"
-    : heroTone === "dark"
-      ? "text-white"
-      : "text-[var(--color-ink)]";
+  const showLightText = pathname === "/" && !scrolled && heroTone === "dark";
 
-  const menuToneClass = scrolled
-    ? "text-[var(--color-ink)]"
-    : heroTone === "dark"
-      ? "text-white"
-      : "text-[var(--color-ink)]";
+  const brandToneClass = showLightText
+    ? "text-white"
+    : "text-[var(--color-ink)]";
 
-  const navLinkClass = scrolled
-    ? "text-[var(--color-ink)]/80 hover:text-[var(--color-gold)]"
-    : heroTone === "dark"
-      ? "text-white/85 hover:text-[var(--color-gold)]"
-      : "text-[var(--color-ink)]/80 hover:text-[var(--color-gold)]";
+  const menuToneClass = showLightText
+    ? "text-white"
+    : "text-[var(--color-ink)]";
+
+  const navLinkClass = showLightText
+    ? "text-white/85 hover:text-[var(--color-gold)]"
+    : "text-[var(--color-ink)]/80 hover:text-[var(--color-gold)]";
+
+  const mobileNavLinkClass = showLightText
+    ? "text-white transition hover:text-white/90"
+    : "text-[var(--color-ink)] transition hover:text-[var(--color-gold)]";
 
   const ctaClass = scrolled
     ? "bg-[var(--color-gold)] text-white hover:bg-[#8f6d43]"
@@ -131,7 +133,12 @@ export function Navbar() {
         <div className="border-t border-[var(--color-line)] bg-[var(--color-gold)]/95 px-4 py-4 lg:hidden">
           <div className="flex flex-col gap-3">
             {links.map((link) => (
-              <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="text-sm font-medium text-white transition hover:text-white/90">
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`text-sm font-medium ${mobileNavLinkClass}`}
+              >
                 {link.label}
               </Link>
             ))}

@@ -77,7 +77,7 @@ export function ContactPopup() {
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 px-4 py-6">
-      <div className="w-full max-w-2xl rounded-[28px] border border-[var(--color-gold)]/30 bg-[var(--color-paper)] p-6 shadow-2xl sm:p-8">
+      <div className="w-full max-w-lg sm:max-w-2xl rounded-3xl border border-[var(--color-gold)]/40 bg-[var(--color-paper)] p-6 shadow-[0_12px_40px_rgba(10,10,10,0.05)] max-h-[90vh] overflow-y-auto">
         <div className="mb-5 flex items-start justify-between gap-3">
           <div>
             <p className="section-eyebrow">Let’s talk</p>
@@ -112,58 +112,63 @@ export function ContactPopup() {
         )}
 
         <form onSubmit={handleSubmit} className="grid gap-4">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <input
-              required
-              value={form.name}
-              onChange={(e) => handleChange("name", e.target.value)}
-              placeholder="Your name"
-              className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
-            />
-            <input
-              required
-              value={form.addressAndLocation}
-              onChange={(e) => handleChange("addressAndLocation", e.target.value)}
-              placeholder="Address & Location"
-              className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
-            />
-            <input
-              required
-              value={form.phone}
-              onChange={(e) => handleChange("phone", e.target.value)}
-              placeholder="Phone"
-              className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
-            />
-            <input
-              required
-              type="email"
-              value={form.email}
-              onChange={(e) => handleChange("email", e.target.value)}
-              placeholder="Email"
-              className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
-            />
-          </div>
-
+          <input
+            required
+            value={form.name}
+            onChange={(e) => handleChange("name", e.target.value)}
+            placeholder="Name"
+            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
+          />
+          <input
+            required
+            value={form.phone}
+            onChange={(e) => handleChange("phone", e.target.value)}
+            placeholder="Phone"
+            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
+          />
+          <input
+            required
+            value={form.addressAndLocation}
+            onChange={(e) => handleChange("addressAndLocation", e.target.value)}
+            placeholder="Address & Location"
+            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
+          />
+          <input
+            required
+            type="email"
+            value={form.email}
+            onChange={(e) => handleChange("email", e.target.value)}
+            placeholder="Email"
+            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
+          />
+          <select
+            required
+            value={form.projectType}
+            onChange={(e) => handleChange("projectType", e.target.value)}
+            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
+          >
+            <option value="Construction">Construction</option>
+            <option value="Residential">Residential</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Interior">Interior</option>
+            <option value="Landscape">Landscape</option>
+            <option value="Other">Other</option>
+          </select>
           <textarea
             required
             value={form.message}
             onChange={(e) => handleChange("message", e.target.value)}
-            placeholder="Tell us about your requirement"
-            className="min-h-32 rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
+            placeholder="Message"
+            className="min-h-36 rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
           />
 
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-[var(--color-muted)]">
-              We usually reply within one business day.
-            </p>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="rounded-full bg-[var(--color-gold)] px-5 py-3 font-semibold text-white transition hover:bg-[#8f6d43] disabled:cursor-not-allowed disabled:opacity-70"
-            >
-              {isSubmitting ? "Submitting..." : "Send enquiry"}
-            </button>
-          </div>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="rounded-full bg-[var(--color-gold)] px-5 py-3 font-semibold text-white transition hover:bg-[#8f6d43] disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </button>
         </form>
       </div>
     </div>
