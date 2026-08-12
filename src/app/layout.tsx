@@ -19,11 +19,48 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Perficient Design Studio",
+  metadataBase: new URL("https://perficientdesignstudio.com"),
+
+  title:
+    "Interior Design, Architecture & Construction in India | Perficient Design Studio",
+
   description:
-    "Premium architecture, construction, interior, and landscaping design studio based in Lucknow.",
+    "Perficient Design Studio is an India-based design and construction studio offering interior design, architecture, construction, landscaping, and complete residential and commercial solutions in Lucknow and across India.",
+
+  alternates: {
+    canonical: "https://perficientdesignstudio.com/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+
   icons: {
     icon: LOGO_SRC,
+  },
+
+  openGraph: {
+    title:
+      "Interior Design, Architecture & Construction in India | Perficient Design Studio",
+    description:
+      "Interior design, architecture, construction and landscaping solutions for residential and commercial projects in Lucknow and across India.",
+    url: "https://perficientdesignstudio.com/",
+    siteName: "Perficient Design Studio",
+    locale: "en_IN",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Interior Design, Architecture & Construction in India | Perficient Design Studio",
+    description:
+      "Interior design, architecture, construction and landscaping solutions in Lucknow and across India.",
   },
 };
 
@@ -33,12 +70,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable} h-full`}>
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${inter.variable} h-full`}
+    >
       <body className="min-h-full flex flex-col bg-[var(--color-paper)] text-[var(--color-ink)]">
         <Navbar />
+
         <div className="flex-1">{children}</div>
+
         <Footer />
+
         <WhatsAppButton />
+
         <ContactPopup />
       </body>
     </html>
