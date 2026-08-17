@@ -41,7 +41,10 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: LOGO_SRC,
+    icon: [
+      { url: LOGO_SRC, type: "image/png", sizes: "any" },
+    ],
+    apple: LOGO_SRC,
   },
 
   openGraph: {
