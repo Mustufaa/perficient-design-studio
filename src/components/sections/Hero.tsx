@@ -72,7 +72,6 @@ export function Hero() {
 
       <div className="relative z-10 flex h-full items-center justify-center px-4 pt-0 text-center sm:px-6 lg:px-8 lg:pt-24 xl:pt-16">
         <div className="mx-auto max-w-4xl">
-          <div className="mx-auto mb-6 h-px w-16 bg-white/70" />
           <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.38em] text-white/80">
             {slides[activeIndex]?.service}
           </p>

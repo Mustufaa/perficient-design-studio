@@ -78,7 +78,7 @@ export function Footer() {
       <div className="px-4 pb-6 text-center text-sm text-[var(--color-ink)]/70">
         <p>© {new Date().getFullYear()} Perficient Design Studio</p>
         <p className="mt-2">
-          Design by{' '}
+          Design & Developed by{' '}
           <a
             href="https://www.linkedin.com/in/mohdmustufa"
             target="_blank"

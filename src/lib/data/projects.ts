@@ -75,8 +75,9 @@ export const projects: Project[] = [
     overview:
       "A contemporary residence designed with a modern architectural language, blending aesthetics, functionality, and sustainability to create a luxurious yet comfortable living experience.",
     images: [
-      "/modern-residential-project-01.jpeg",
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80",
+      "/modern-residential-project-02.jpeg",
+      "/modern-residential-project-03.jpeg",
+      "/modern-residential-project-04.jpeg",
     ],
     details: [
       "Modern Architectural Facade",
@@ -112,8 +113,12 @@ export const projects: Project[] = [
     overview:
       "A premium cafe and bakery interior design project planned for a welcoming customer experience, strong frontage visibility, efficient counter movement, and a soft modern ambience suited for coffee, dessert, and casual dining spaces.",
     images: [
-      "/cafe-bakery-design-01.jpeg",
-      "/cafe-bakery-interior-design-02.jpeg",
+      "/cafe-bakery-design-hero.jpeg",
+      "/cafe-bakery-design-05.jpeg",
+      "/cafe-bakery-design-06.jpeg",
+      "/cafe-bakery-design-07.jpeg",
+      "/cafe-bakery-design-08.jpeg",
+      "/cafe-bakery-design-09.jpeg",
     ],
     details: [
       "Cafe interior design with a warm and welcoming customer experience",
@@ -191,6 +196,14 @@ export const projects: Project[] = [
       "A timeless commercial property designed as a marriage hall and event venue with elegance, comfort, and functionality in mind. The architecture reflects classical proportions, premium detailing, and a welcoming ambience for unforgettable moments and grand social gatherings.",
     images: [
       "/commercial-property-marriage-hall-01.png",
+      "/commercial-property-01.jpeg",
+      "/commercial-property-02.jpeg",
+      "/commercial-property-03.jpeg",
+      "/commercial-property-04.jpeg",
+      "/commercial-property-05.jpeg",
+      "/commercial-property-06.jpeg",
+      "/commercial-property-07.jpeg",
+      "/commercial-property-08.jpeg",
     ],
     details: [
       "Grand commercial property architectural design",
@@ -229,7 +242,12 @@ export const projects: Project[] = [
       "A private villa project developed around luxury living, elegant spatial flow, and a calm material palette that balances exclusivity with everyday comfort.",
     images: [
       "/luxury-residential-project-01.jpeg",
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+      "/luxury-residential-project-02.jpeg",
+      "/luxury-residential-project-03.jpeg",
+      "/luxury-residential-project-04.jpeg",
+      "/luxury-residential-project-05.jpeg",
+      "/luxury-residential-project-07.jpeg",
+      
     ],
     details: [
       "Private courtyard planning",

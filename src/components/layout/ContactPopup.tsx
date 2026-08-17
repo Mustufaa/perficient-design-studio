@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { X } from "lucide-react";
 
 type FeedbackState = { type: "success" | "error"; message: string } | null;
@@ -24,10 +24,18 @@ const initialForm: FormState = {
 };
 
 export function ContactPopup() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<FeedbackState>(null);
   const [form, setForm] = useState<FormState>(initialForm);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setIsOpen(true);
+    }, 5000);
+
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const handleChange = (field: keyof FormState, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -78,15 +86,17 @@ export function ContactPopup() {
   }
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 px-4 py-6">
-      <div className="w-full max-w-lg sm:max-w-2xl rounded-3xl border border-[var(--color-gold)]/40 bg-[var(--color-paper)] p-6 shadow-[0_12px_40px_rgba(10,10,10,0.05)] max-h-[90vh] overflow-y-auto">
-        <div className="mb-5 flex items-start justify-between gap-3">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/55 px-3 py-4 sm:px-4">
+      <div className="w-full max-w-md rounded-2xl border border-[var(--color-gold)]/40 bg-[var(--color-paper)] p-4 shadow-[0_12px_40px_rgba(10,10,10,0.12)] max-h-[86vh] overflow-y-auto sm:max-w-lg sm:rounded-3xl sm:p-6">
+        <div className="mb-4 flex items-start justify-between gap-3 sm:mb-5">
           <div>
-            <p className="section-eyebrow">Let’s talk</p>
-            <h2 className="mt-2 text-2xl font-semibold text-[var(--color-ink)] sm:text-3xl">
+            <p className="section-eyebrow text-[10px] uppercase tracking-[0.24em] sm:text-xs">
+              Let’s talk
+            </p>
+            <h2 className="mt-2 text-xl font-semibold text-[var(--color-ink)] sm:text-2xl">
               Tell us about your requirement
             </h2>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
+            <p className="mt-1.5 text-xs leading-5 text-[var(--color-muted)] sm:text-sm sm:leading-6">
               Share your idea and we will get back to you with the right plan.
             </p>
           </div>
@@ -96,14 +106,14 @@ export function ContactPopup() {
             className="rounded-full border border-[var(--color-line)] p-2 text-[var(--color-muted)] transition hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]"
             aria-label="Close contact form"
           >
-            <X className="h-5 w-5" />
+            <X className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
         </div>
 
         {feedback && (
           <div
             aria-live="polite"
-            className={`mb-4 rounded-2xl border px-4 py-3 text-sm font-medium ${
+            className={`mb-4 rounded-2xl border px-3 py-2 text-xs font-medium sm:px-4 sm:py-3 sm:text-sm ${
               feedback.type === "success"
                 ? "border-emerald-700/20 bg-emerald-50 text-emerald-900"
                 : "border-rose-700/20 bg-rose-50 text-rose-900"
@@ -113,41 +123,46 @@ export function ContactPopup() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="grid gap-4">
-          <input
-            required
-            value={form.name}
-            onChange={(e) => handleChange("name", e.target.value)}
-            placeholder="Name"
-            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
-          />
-          <input
-            required
-            value={form.phone}
-            onChange={(e) => handleChange("phone", e.target.value)}
-            placeholder="Phone"
-            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
-          />
+        <form onSubmit={handleSubmit} className="grid gap-3 sm:gap-4">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <input
+              required
+              value={form.name}
+              onChange={(e) => handleChange("name", e.target.value)}
+              placeholder="Name"
+              className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 text-sm outline-none ring-0"
+            />
+            <input
+              required
+              value={form.phone}
+              onChange={(e) => handleChange("phone", e.target.value)}
+              placeholder="Phone"
+              className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 text-sm outline-none ring-0"
+            />
+          </div>
+
           <input
             required
             value={form.addressAndLocation}
             onChange={(e) => handleChange("addressAndLocation", e.target.value)}
             placeholder="Address & Location"
-            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
+            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 text-sm outline-none ring-0"
           />
+
           <input
             required
             type="email"
             value={form.email}
             onChange={(e) => handleChange("email", e.target.value)}
             placeholder="Email"
-            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
+            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 text-sm outline-none ring-0"
           />
+
           <select
             required
             value={form.projectType}
             onChange={(e) => handleChange("projectType", e.target.value)}
-            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
+            className="rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 text-sm outline-none ring-0"
           >
             <option value="Construction">Construction</option>
             <option value="Residential">Residential</option>
@@ -156,18 +171,19 @@ export function ContactPopup() {
             <option value="Landscape">Landscape</option>
             <option value="Other">Other</option>
           </select>
+
           <textarea
             required
             value={form.message}
             onChange={(e) => handleChange("message", e.target.value)}
             placeholder="Message"
-            className="min-h-36 rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 outline-none ring-0"
+            className="min-h-24 rounded-xl border border-[var(--color-gold)]/40 bg-white/90 p-3 text-sm outline-none ring-0 sm:min-h-28"
           />
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="rounded-full bg-[var(--color-gold)] px-5 py-3 font-semibold text-white transition hover:bg-[#8f6d43] disabled:cursor-not-allowed disabled:opacity-70"
+            className="rounded-full bg-[var(--color-gold)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#8f6d43] disabled:cursor-not-allowed disabled:opacity-70 sm:text-base"
           >
             {isSubmitting ? "Submitting..." : "Submit"}
           </button>
