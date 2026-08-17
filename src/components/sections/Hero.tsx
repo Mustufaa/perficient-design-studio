@@ -91,11 +91,6 @@ export function Hero() {
             <p>Best architecture, interior design & construction company.</p>
             <p>One stop solution for your dream space.</p>
           </div>
-          {activeIndex === 2 && (
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/80 italic sm:text-[15.5px] transition-opacity duration-500">
-              <span className="font-semibold">We offer Turnkey Construction</span>
-            </p>
-          )}
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/projects"
