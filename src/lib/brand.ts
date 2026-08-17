@@ -1,1 +1,1 @@
-export const LOGO_SRC = "/logo-new.png";
+export const LOGO_SRC = "/favicon-ips.png";
